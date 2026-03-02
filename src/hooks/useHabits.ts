@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Habit } from "@/types/habit";
 import { getStoredHabits, saveHabits, getTodayDateString } from "@/utils/storage";
+import { calculateStreak } from "@/utils/streak";
 
 export function useHabits() {
   const [habits, setHabits] = useState<Habit[]>([]);
@@ -58,6 +59,12 @@ export function useHabits() {
     return habit.completedDates.includes(getTodayDateString());
   };
 
+  const getStreak = (id: string): number => {
+    const habit = habits.find((h) => h.id === id);
+    if (!habit) return 0;
+    return calculateStreak(habit.completedDates);
+  };
+
   return {
     habits,
     isLoaded,
@@ -65,5 +72,6 @@ export function useHabits() {
     deleteHabit,
     toggleHabit,
     isCompletedToday,
+    getStreak,
   };
 }

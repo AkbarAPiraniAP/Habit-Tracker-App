@@ -6,6 +6,7 @@ import { HabitItem } from "./HabitItem";
 interface HabitListProps {
   habits: Habit[];
   isCompletedToday: (id: string) => boolean;
+  getStreak: (id: string) => number;
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
 }
@@ -13,6 +14,7 @@ interface HabitListProps {
 export function HabitList({
   habits,
   isCompletedToday,
+  getStreak,
   onToggle,
   onDelete,
 }: HabitListProps) {
@@ -47,6 +49,7 @@ export function HabitList({
           key={habit.id}
           habit={habit}
           isCompleted={isCompletedToday(habit.id)}
+          streak={getStreak(habit.id)}
           onToggle={onToggle}
           onDelete={onDelete}
         />

@@ -6,7 +6,7 @@ import { HabitList } from "@/components/HabitList";
 import { useHabits } from "@/hooks/useHabits";
 
 export default function Home() {
-  const { habits, isLoaded, addHabit, deleteHabit, toggleHabit, isCompletedToday } =
+  const { habits, isLoaded, addHabit, deleteHabit, toggleHabit, isCompletedToday, getStreak } =
     useHabits();
 
   return (
@@ -17,6 +17,7 @@ export default function Home() {
         <HabitList
           habits={habits}
           isCompletedToday={isCompletedToday}
+          getStreak={getStreak}
           onToggle={toggleHabit}
           onDelete={deleteHabit}
         />
