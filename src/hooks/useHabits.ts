@@ -65,6 +65,20 @@ export function useHabits() {
     return calculateStreak(habit.completedDates);
   };
 
+  const getStats = () => {
+    const today = getTodayDateString();
+    const totalHabits = habits.length;
+    const completedToday = habits.filter((h) =>
+      h.completedDates.includes(today)
+    ).length;
+    const longestStreak = habits.reduce((max, habit) => {
+      const streak = calculateStreak(habit.completedDates);
+      return streak > max ? streak : max;
+    }, 0);
+
+    return { totalHabits, completedToday, longestStreak };
+  };
+
   return {
     habits,
     isLoaded,
@@ -73,5 +87,6 @@ export function useHabits() {
     toggleHabit,
     isCompletedToday,
     getStreak,
+    getStats,
   };
 }
