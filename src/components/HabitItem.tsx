@@ -1,11 +1,13 @@
 "use client";
 
 import { Habit } from "@/types/habit";
+import { ProgressBar } from "./ProgressBar";
 
 interface HabitItemProps {
   habit: Habit;
   isCompleted: boolean;
   streak: number;
+  weeklyCompletions: number;
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
 }
@@ -19,15 +21,16 @@ const categoryColors: Record<string, string> = {
   Other: "bg-gray-100 text-gray-800",
 };
 
-export function HabitItem({ habit, isCompleted, streak, onToggle, onDelete }: HabitItemProps) {
+export function HabitItem({ habit, isCompleted, streak, weeklyCompletions, onToggle, onDelete }: HabitItemProps) {
   return (
     <div
-      className={`flex items-center justify-between rounded-lg border p-4 transition-all ${
+      className={`rounded-lg border p-4 transition-all ${
         isCompleted
           ? "border-green-200 bg-green-50"
           : "border-gray-200 bg-white hover:border-gray-300"
       }`}
     >
+      <div className="flex items-center justify-between">
       <div className="flex items-center gap-4">
         <span
           className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
@@ -91,6 +94,8 @@ export function HabitItem({ habit, isCompleted, streak, onToggle, onDelete }: Ha
           </svg>
         </button>
       </div>
+      </div>
+      <ProgressBar completed={weeklyCompletions} total={7} category={habit.category} />
     </div>
   );
 }

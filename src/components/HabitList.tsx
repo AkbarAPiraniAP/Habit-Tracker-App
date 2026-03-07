@@ -2,6 +2,7 @@
 
 import { Habit } from "@/types/habit";
 import { HabitItem } from "./HabitItem";
+import { getWeeklyCompletions } from "@/utils/weeklyProgress";
 
 interface HabitListProps {
   habits: Habit[];
@@ -50,6 +51,7 @@ export function HabitList({
           habit={habit}
           isCompleted={isCompletedToday(habit.id)}
           streak={getStreak(habit.id)}
+          weeklyCompletions={getWeeklyCompletions(habit.completedDates)}
           onToggle={onToggle}
           onDelete={onDelete}
         />
