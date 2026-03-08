@@ -3,6 +3,7 @@
 import { Header } from "@/components/Header";
 import { Dashboard } from "@/components/Dashboard";
 import { ExportButton } from "@/components/ExportButton";
+import { Heatmap } from "@/components/Heatmap";
 import { AddHabitForm } from "@/components/AddHabitForm";
 import { HabitList } from "@/components/HabitList";
 import { useHabits } from "@/hooks/useHabits";
@@ -23,6 +24,7 @@ export default function Home() {
             completedToday={stats.completedToday}
             longestStreak={stats.longestStreak}
           />
+          <Heatmap habits={habits} />
           <div className="mb-6 flex justify-end">
             <ExportButton habits={habits} />
           </div>
