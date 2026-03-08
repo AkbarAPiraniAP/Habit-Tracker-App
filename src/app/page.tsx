@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/Header";
 import { Dashboard } from "@/components/Dashboard";
+import { Heatmap } from "@/components/Heatmap";
 import { AddHabitForm } from "@/components/AddHabitForm";
 import { HabitList } from "@/components/HabitList";
 import { useHabits } from "@/hooks/useHabits";
@@ -16,11 +17,14 @@ export default function Home() {
     <main className="mx-auto max-w-2xl px-4 py-12">
       <Header />
       {isLoaded && (
-        <Dashboard
-          totalHabits={stats.totalHabits}
-          completedToday={stats.completedToday}
-          longestStreak={stats.longestStreak}
-        />
+        <>
+          <Dashboard
+            totalHabits={stats.totalHabits}
+            completedToday={stats.completedToday}
+            longestStreak={stats.longestStreak}
+          />
+          <Heatmap habits={habits} />
+        </>
       )}
       <AddHabitForm onAdd={addHabit} />
       {isLoaded ? (
