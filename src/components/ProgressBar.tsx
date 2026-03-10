@@ -21,13 +21,13 @@ export function ProgressBar({ completed, total, category }: ProgressBarProps) {
 
   return (
     <div className="mt-3 w-full">
-      <div className="mb-1 flex items-center justify-between text-xs text-gray-500">
+      <div className="mb-1 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
         <span>This week</span>
         <span>
           {completed}/{total} days
         </span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
+      <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
         <div
           className={`h-full rounded-full transition-all duration-300 ${barColor}`}
           style={{ width: `${percentage}%` }}

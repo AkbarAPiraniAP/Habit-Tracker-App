@@ -9,12 +9,12 @@ interface DashboardProps {
 export function Dashboard({ totalHabits, completedToday, longestStreak }: DashboardProps) {
   return (
     <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-      <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+      <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
         <div className="flex items-center gap-3">
-          <div className="rounded-full bg-blue-100 p-2">
+          <div className="rounded-full bg-blue-100 p-2 dark:bg-blue-900/50">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-blue-600"
+              className="h-5 w-5 text-blue-600 dark:text-blue-400"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -27,18 +27,18 @@ export function Dashboard({ totalHabits, completedToday, longestStreak }: Dashbo
             </svg>
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-500">Total Habits</p>
-            <p className="text-2xl font-bold text-gray-900">{totalHabits}</p>
+            <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Total Habits</p>
+            <p className="text-2xl font-bold text-gray-900 dark:text-white">{totalHabits}</p>
           </div>
         </div>
       </div>
 
-      <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+      <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
         <div className="flex items-center gap-3">
-          <div className="rounded-full bg-green-100 p-2">
+          <div className="rounded-full bg-green-100 p-2 dark:bg-green-900/50">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-green-600"
+              className="h-5 w-5 text-green-600 dark:text-green-400"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -50,20 +50,20 @@ export function Dashboard({ totalHabits, completedToday, longestStreak }: Dashbo
             </svg>
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-500">Completed Today</p>
-            <p className="text-2xl font-bold text-gray-900">
-              {completedToday} <span className="text-base font-normal text-gray-500">of {totalHabits}</span>
+            <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Completed Today</p>
+            <p className="text-2xl font-bold text-gray-900 dark:text-white">
+              {completedToday} <span className="text-base font-normal text-gray-500 dark:text-gray-400">of {totalHabits}</span>
             </p>
           </div>
         </div>
       </div>
 
-      <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+      <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
         <div className="flex items-center gap-3">
-          <div className="rounded-full bg-amber-100 p-2">
+          <div className="rounded-full bg-amber-100 p-2 dark:bg-amber-900/50">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-amber-600"
+              className="h-5 w-5 text-amber-600 dark:text-amber-400"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -75,9 +75,9 @@ export function Dashboard({ totalHabits, completedToday, longestStreak }: Dashbo
             </svg>
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-500">Longest Streak</p>
-            <p className="text-2xl font-bold text-gray-900">
-              {longestStreak} <span className="text-base font-normal text-gray-500">day{longestStreak !== 1 ? "s" : ""}</span>
+            <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Longest Streak</p>
+            <p className="text-2xl font-bold text-gray-900 dark:text-white">
+              {longestStreak} <span className="text-base font-normal text-gray-500 dark:text-gray-400">day{longestStreak !== 1 ? "s" : ""}</span>
             </p>
           </div>
         </div>

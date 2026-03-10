@@ -13,12 +13,12 @@ interface HabitItemProps {
 }
 
 const categoryColors: Record<string, string> = {
-  Health: "bg-green-100 text-green-800",
-  Productivity: "bg-blue-100 text-blue-800",
-  Learning: "bg-purple-100 text-purple-800",
-  Fitness: "bg-orange-100 text-orange-800",
-  Mindfulness: "bg-pink-100 text-pink-800",
-  Other: "bg-gray-100 text-gray-800",
+  Health: "bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300",
+  Productivity: "bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300",
+  Learning: "bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300",
+  Fitness: "bg-orange-100 text-orange-800 dark:bg-orange-900/50 dark:text-orange-300",
+  Mindfulness: "bg-pink-100 text-pink-800 dark:bg-pink-900/50 dark:text-pink-300",
+  Other: "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300",
 };
 
 export function HabitItem({ habit, isCompleted, streak, weeklyCompletions, onToggle, onDelete }: HabitItemProps) {
@@ -26,8 +26,8 @@ export function HabitItem({ habit, isCompleted, streak, weeklyCompletions, onTog
     <div
       className={`rounded-lg border p-4 transition-all ${
         isCompleted
-          ? "border-green-200 bg-green-50"
-          : "border-gray-200 bg-white hover:border-gray-300"
+          ? "border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-900/30"
+          : "border-gray-200 bg-white hover:border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600"
       }`}
     >
       <div className="flex items-center justify-between">
@@ -41,13 +41,13 @@ export function HabitItem({ habit, isCompleted, streak, weeklyCompletions, onTog
         </span>
         <span
           className={`text-lg ${
-            isCompleted ? "text-gray-500 line-through" : "text-gray-900"
+            isCompleted ? "text-gray-500 line-through dark:text-gray-400" : "text-gray-900 dark:text-white"
           }`}
         >
           {habit.name}
         </span>
         {streak > 0 && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800">
+          <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900/50 dark:text-amber-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-3.5 w-3.5"
@@ -70,14 +70,14 @@ export function HabitItem({ habit, isCompleted, streak, weeklyCompletions, onTog
           className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${
             isCompleted
               ? "bg-green-600 text-white hover:bg-green-700 focus:ring-green-500"
-              : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-500"
+              : "bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
           }`}
         >
           {isCompleted ? "Done!" : "Done today"}
         </button>
         <button
           onClick={() => onDelete(habit.id)}
-          className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+          className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:text-gray-500 dark:hover:bg-red-900/30 dark:hover:text-red-400"
           aria-label="Delete habit"
         >
           <svg

@@ -22,10 +22,10 @@ function getLast90Days(): string[] {
 }
 
 function getColorClass(count: number): string {
-  if (count === 0) return "bg-gray-200";
-  if (count <= 2) return "bg-green-300";
-  if (count <= 4) return "bg-green-500";
-  return "bg-green-700";
+  if (count === 0) return "bg-gray-200 dark:bg-gray-700";
+  if (count <= 2) return "bg-green-300 dark:bg-green-700";
+  if (count <= 4) return "bg-green-500 dark:bg-green-500";
+  return "bg-green-700 dark:bg-green-300";
 }
 
 function formatDate(dateStr: string): string {
@@ -45,8 +45,8 @@ export function Heatmap({ habits }: HeatmapProps) {
   }
 
   return (
-    <div className="mb-8 rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-      <h3 className="mb-4 text-sm font-medium text-gray-700">Last 90 Days</h3>
+    <div className="mb-8 rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+      <h3 className="mb-4 text-sm font-medium text-gray-700 dark:text-gray-300">Last 90 Days</h3>
       <div className="flex flex-wrap gap-1" style={{ maxWidth: "182px" }}>
         {days.map((day) => (
           <div
@@ -56,12 +56,12 @@ export function Heatmap({ habits }: HeatmapProps) {
           />
         ))}
       </div>
-      <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
+      <div className="mt-3 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
         <span>Less</span>
-        <div className="h-3 w-3 rounded-sm bg-gray-200" />
-        <div className="h-3 w-3 rounded-sm bg-green-300" />
+        <div className="h-3 w-3 rounded-sm bg-gray-200 dark:bg-gray-700" />
+        <div className="h-3 w-3 rounded-sm bg-green-300 dark:bg-green-700" />
         <div className="h-3 w-3 rounded-sm bg-green-500" />
-        <div className="h-3 w-3 rounded-sm bg-green-700" />
+        <div className="h-3 w-3 rounded-sm bg-green-700 dark:bg-green-300" />
         <span>More</span>
       </div>
     </div>

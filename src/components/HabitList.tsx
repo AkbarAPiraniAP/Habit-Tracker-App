@@ -21,9 +21,9 @@ export function HabitList({
 }: HabitListProps) {
   if (habits.length === 0) {
     return (
-      <div className="rounded-lg border-2 border-dashed border-gray-200 p-12 text-center">
+      <div className="rounded-lg border-2 border-dashed border-gray-200 p-12 text-center dark:border-gray-700">
         <svg
-          className="mx-auto h-12 w-12 text-gray-400"
+          className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -35,8 +35,8 @@ export function HabitList({
             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
           />
         </svg>
-        <h3 className="mt-4 text-lg font-medium text-gray-900">No habits yet</h3>
-        <p className="mt-1 text-gray-500">
+        <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-white">No habits yet</h3>
+        <p className="mt-1 text-gray-500 dark:text-gray-400">
           Get started by adding your first habit above.
         </p>
       </div>
